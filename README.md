@@ -9,3 +9,6 @@ Feature:
 Things added:
 - Re-useable broker upgrade item
 - Upgrade and Downgrade
+Things changed:
+- Delays
+- Removed wooden, stone, gold
