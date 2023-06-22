@@ -212,7 +212,7 @@
                             "target": "player",
                             "command": [
                                 "playsound firework.blast @s",
-                                "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"gui.upgrade\",\"with\":{\"rawtext\":[{\"translate\":\"tile.breaker:iron_block_breaker.name\"}]}}]}"
+                                "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"gui.downgrade\",\"with\":{\"rawtext\":[{\"translate\":\"tile.breaker:iron_block_breaker.name\"}]}}]}"
                             ]
                         },
                         "decrement_stack": {}
