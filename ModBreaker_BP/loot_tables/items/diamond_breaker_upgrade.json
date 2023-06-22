@@ -1,0 +1,14 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "breaker:diamond_breaker_upgrade",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

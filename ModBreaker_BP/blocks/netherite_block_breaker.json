@@ -67,8 +67,8 @@
                     "minecraft:queued_ticking": {
                         "looping": true,
                         "interval_range": [
-                            1,
-                            1
+                            2,
+                            2
                         ],
                         "on_tick": {
                             "event": "breaker:break_block"
@@ -166,6 +166,18 @@
             "breaker:on_interact": {
                 "sequence": [
                     {
+                        "condition": "q.is_item_name_any('slot.weapon.mainhand','breaker:diamond_breaker_upgrade')",
+                        "trigger": {
+                            "event": "breaker:upgrade_diamond"
+                        }
+                    },
+                    {
+                        "condition": "q.is_item_name_any('slot.weapon.mainhand','breaker:iron_breaker_upgrade')",
+                        "trigger": {
+                            "event": "breaker:upgrade_iron"
+                        }
+                    },
+                    {
                         "condition": "query.block_property('breaker:powered') == true",
                         "run_command": {
                             "target": "player",
@@ -189,6 +201,154 @@
                         },
                         "set_block_property": {
                             "breaker:powered": "true"
+                        }
+                    }
+                ]
+            },
+            "breaker:upgrade_diamond": {
+                "sequence": [
+                    {
+                        "run_command": {
+                            "target": "player",
+                            "command": [
+                                "playsound firework.blast @s",
+                                "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"gui.upgrade\",\"with\":{\"rawtext\":[{\"translate\":\"tile.breaker:diamond_block_breaker.name\"}]}}]}"
+                            ]
+                        },
+                        "decrement_stack": {}
+                    },
+                    {
+                        "condition": "q.block_property('breaker:direction') == 0",
+                        "run_command": {
+                            "target": "block",
+                            "command": [
+				"loot spawn ~0.5 ~1.1 ~0.5 loot \"items/netherite_breaker_upgrade\"",
+				"setblock ~ ~ ~ breaker:diamond_block_breaker [\"breaker:direction\": 0, \"breaker:powered\": false]"
+			    ]
+                        }
+                    },
+                    {
+                        "condition": "q.block_property('breaker:direction') == 1",
+                        "run_command": {
+                            "target": "block",
+                            "command": [
+				"loot spawn ~0.5 ~-0.1 ~0.5 loot \"items/netherite_breaker_upgrade\"",
+				"setblock ~ ~ ~ breaker:diamond_block_breaker [\"breaker:direction\": 1, \"breaker:powered\": false]"
+			    ]
+                        }
+                    },
+                    {
+                        "condition": "q.block_property('breaker:direction') == 2",
+                        "run_command": {
+                            "target": "block",
+                            "command": [
+				"loot spawn ~0.5 ~0.5 ~1.1 loot \"items/netherite_breaker_upgrade\"",
+				"setblock ~ ~ ~ breaker:diamond_block_breaker [\"breaker:direction\": 2, \"breaker:powered\": false]"
+			    ]
+                        }
+                    },
+                    {
+                        "condition": "q.block_property('breaker:direction') == 3",
+                        "run_command": {
+                            "target": "block",
+                            "command": [
+				"loot spawn ~0.5 ~0.5 ~-0.1 loot \"items/netherite_breaker_upgrade\"",
+				"setblock ~ ~ ~ breaker:diamond_block_breaker [\"breaker:direction\": 3, \"breaker:powered\": false]"
+			    ]
+                        }
+                    },
+                    {
+                        "condition": "q.block_property('breaker:direction') == 4",
+                        "run_command": {
+                            "target": "block",
+                            "command": [
+				"loot spawn ~1.1 ~0.5 ~0.5 loot \"items/netherite_breaker_upgrade\"",
+				"setblock ~ ~ ~ breaker:diamond_block_breaker [\"breaker:direction\": 4, \"breaker:powered\": false]"
+			    ]
+                        }
+                    },
+                    {
+                        "condition": "q.block_property('breaker:direction') == 5",
+                        "run_command": {
+                            "target": "block",
+                            "command": [
+				"loot spawn ~0.5 ~0.5 ~-0.1 loot \"items/netherite_breaker_upgrade\"",
+				"setblock ~ ~ ~ breaker:diamond_block_breaker [\"breaker:direction\": 5, \"breaker:powered\": false]"
+			    ]
+                        }
+                    }
+                ]
+            },
+            "breaker:upgrade_iron": {
+                "sequence": [
+                    {
+                        "run_command": {
+                            "target": "player",
+                            "command": [
+                                "playsound firework.blast @s",
+                                "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"gui.upgrade\",\"with\":{\"rawtext\":[{\"translate\":\"tile.breaker:iron_block_breaker.name\"}]}}]}"
+                            ]
+                        },
+                        "decrement_stack": {}
+                    },
+                    {
+                        "condition": "q.block_property('breaker:direction') == 0",
+                        "run_command": {
+                            "target": "block",
+                            "command": [
+				"loot spawn ~0.5 ~1.1 ~0.5 loot \"items/netherite_breaker_upgrade\"",
+				"setblock ~ ~ ~ breaker:iron_block_breaker [\"breaker:direction\": 0, \"breaker:powered\": false]"
+			    ]
+                        }
+                    },
+                    {
+                        "condition": "q.block_property('breaker:direction') == 1",
+                        "run_command": {
+                            "target": "block",
+                            "command": [
+				"loot spawn ~0.5 ~-0.1 ~0.5 loot \"items/netherite_breaker_upgrade\"",
+				"setblock ~ ~ ~ breaker:iron_block_breaker [\"breaker:direction\": 1, \"breaker:powered\": false]"
+			    ]
+                        }
+                    },
+                    {
+                        "condition": "q.block_property('breaker:direction') == 2",
+                        "run_command": {
+                            "target": "block",
+                            "command": [
+				"loot spawn ~0.5 ~0.5 ~1.1 loot \"items/netherite_breaker_upgrade\"",
+				"setblock ~ ~ ~ breaker:iron_block_breaker [\"breaker:direction\": 2, \"breaker:powered\": false]"
+			    ]
+                        }
+                    },
+                    {
+                        "condition": "q.block_property('breaker:direction') == 3",
+                        "run_command": {
+                            "target": "block",
+                            "command": [
+				"loot spawn ~0.5 ~0.5 ~-0.1 loot \"items/netherite_breaker_upgrade\"",
+				"setblock ~ ~ ~ breaker:iron_block_breaker [\"breaker:direction\": 3, \"breaker:powered\": false]"
+			    ]
+                        }
+                    },
+                    {
+                        "condition": "q.block_property('breaker:direction') == 4",
+                        "run_command": {
+                            "target": "block",
+                            "command": [
+				"loot spawn ~1.1 ~0.5 ~0.5 loot \"items/netherite_breaker_upgrade\"",
+				"setblock ~ ~ ~ breaker:iron_block_breaker [\"breaker:direction\": 4, \"breaker:powered\": false]"
+			    ]
+                        }
+                    },
+                    {
+                        "condition": "q.block_property('breaker:direction') == 5",
+                        "run_command": {
+                            "target": "block",
+                            "command": [
+				"loot spawn ~0.5 ~0.5 ~-0.1 loot \"items/netherite_breaker_upgrade\"",
+				"setblock ~ ~ ~ breaker:iron_block_breaker [\"breaker:direction\": 5, \"breaker:powered\": false]"
+			    ]
                         }
                     }
                 ]
