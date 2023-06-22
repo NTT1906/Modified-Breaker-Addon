@@ -12,4 +12,5 @@ Things added:
 
 Things changed:
 - Delays
-- Removed wooden, stone, gold
+- It would not destroy indestructible blocks such as command blocks, bedrock, etc,... except for the end gateway
+- Removed wooden, stone and gold
